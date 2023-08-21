@@ -1,0 +1,10 @@
+@use "../../assets/styles/variables" as *;
+
+.filter {
+  padding-top: 10px;
+  text-align: left;
+
+  &__input {
+    margin-right: 5px;
+  }
+}

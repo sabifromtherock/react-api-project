@@ -3,10 +3,11 @@
 .nav {
   background-color: $color-blue;
   color: $color-beige;
-  height: 100px;
+  height: fit-content;
   padding-top: 10px;
   text-align: center;
   margin-bottom: 20px;
+  padding-bottom: 10px;
 
   &__filters {
     display: flex;
