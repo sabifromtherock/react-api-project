@@ -6,7 +6,7 @@
   justify-content: space-between;
   background-color: $color-blue;
   padding: 10px;
-  height: 330px;
+  height: fit-content;
   width: 250px;
   margin: auto;
   text-align: center;
@@ -20,13 +20,15 @@
     max-height: 230px;
     width: auto;
     height: auto;
-    background-color: $color-blue;
   }
 
   &__name {
     height: 80px;
     padding-top: 10px;
-    color: $color-beige;
-    background-color: $color-blue;
+    color: $color-orange;
+  }
+
+  &__paragraph {
+    color: $color-orange;
   }
 }
