@@ -14,7 +14,7 @@ const BeerContainer = ({ beers }: BeerContainerProps) => {
           <BeerCard
             key={beer.id}
             url={beer.image_url}
-            name={beer.name}
+            beer={beer}
             variable={""}
           />
         );

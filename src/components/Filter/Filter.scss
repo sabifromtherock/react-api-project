@@ -3,4 +3,8 @@
 .filter {
   padding-top: 10px;
   text-align: left;
+
+  &__input {
+    margin-right: 5px;
+  }
 }

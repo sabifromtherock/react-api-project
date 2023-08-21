@@ -17,7 +17,7 @@ const BeerDetails = ({ beers }: BeerDetailsProps) => {
     <div className="beer-details">
       <BeerCard
         url={beer.image_url}
-        name={beer.name}
+        beer={beer}
         variable={"beer-details__card"}
       />
       <div className="beer-details__content">
@@ -26,20 +26,10 @@ const BeerDetails = ({ beers }: BeerDetailsProps) => {
           {beer.description}
         </p>
         <p className="beer-details__paragraph">
-          <strong className="beer-details__title">First Brewed:</strong>{" "}
-          {beer.first_brewed}
-        </p>
-        <p className="beer-details__paragraph">
           <strong className="beer-details__title">IBU:</strong> {beer.ibu}
         </p>
         <p className="beer-details__paragraph">
           <strong className="beer-details__title">EBC:</strong> {beer.ebc}
-        </p>
-        <p className="beer-details__paragraph">
-          <strong className="beer-details__title">ABV:</strong> {beer.abv}
-        </p>
-        <p className="beer-details__paragraph">
-          <strong className="beer-details__title">pH:</strong> {beer.ph}
         </p>
         <ul className="beer-details__list">
           <strong className="beer-details__title">Food pairing:</strong>
