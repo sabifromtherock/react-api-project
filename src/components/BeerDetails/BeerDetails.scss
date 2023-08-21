@@ -1,0 +1,39 @@
+@use "../../assets/styles/variables" as *;
+
+.beer-details {
+  color: $color-red;
+  padding: 15px;
+
+  &__content {
+    margin: auto;
+    width: 80%;
+    padding: 30px;
+  }
+
+  &__content,
+  &__paragraph,
+  &__item,
+  &__list,
+  &__title {
+    padding: 5px;
+    background-color: $color-blue-light;
+  }
+
+  &__title {
+    padding: 0;
+    font-size: 18px;
+  }
+
+  &__item {
+    list-style-type: none;
+    margin-left: 50px;
+  }
+
+  &__card {
+    background-color: $color-blue-light;
+    margin: auto;
+    width: 80%;
+    border: unset;
+    border-radius: unset;
+  }
+}

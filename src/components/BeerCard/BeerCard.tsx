@@ -14,7 +14,7 @@ const BeerCard = ({ url, name, variable }: BeerCardProps) => {
         src={url}
         alt={`Picture of a ${name}`}
       />
-      <h3 className="beer-card__name">{name}</h3>
+      <h3 className="beer-card__name">Name: {name}</h3>
     </div>
   );
 };
