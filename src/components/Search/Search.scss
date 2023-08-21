@@ -1,0 +1,13 @@
+@use "../../assets/styles/variables" as *;
+
+.search-form {
+  text-align: center;
+
+  &__label {
+    padding: 10px;
+  }
+
+  &__input {
+    border-radius: 5px;
+  }
+}

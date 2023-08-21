@@ -7,7 +7,6 @@ type BeerContainerProps = {
 };
 
 const BeerContainer = ({ beers }: BeerContainerProps) => {
-  console.log(beers);
   return (
     <div className="beer-container">
       {beers.map((beer) => {
