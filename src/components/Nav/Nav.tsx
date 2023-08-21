@@ -2,6 +2,7 @@ import { useState } from "react";
 import Search from "../Search/Search";
 import "./Nav.scss";
 import whiteCross from "../../assets/images/white-cross.png";
+import FilterList from "../FilterList/FilterList";
 
 type NavProps = {
   setSearchTerm: (searchTerm: string) => void;
@@ -31,6 +32,7 @@ const Nav = ({ setSearchTerm }: NavProps) => {
             onClick={handleClick}
           />
           <Search setSearchTerm={setSearchTerm} />
+          <FilterList />
         </div>
       )}
     </div>

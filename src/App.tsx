@@ -10,8 +10,8 @@ function App() {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [beers, setBeers] = useState<Beer[]>([]);
 
-  let url = "https://api.punkapi.com/v2/beers?page=1&per_page=10";
-
+  const url = "https://api.punkapi.com/v2/beers?page=1&per_page=10";
+  console.log(searchTerm);
   useEffect(() => {
     const getBeers = async () => {
       const data = await (await fetch(url)).json();
