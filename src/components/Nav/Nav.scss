@@ -9,6 +9,12 @@
   margin-bottom: 20px;
   padding-bottom: 10px;
 
+  &__home {
+    display: flex;
+    justify-content: end;
+    padding: 0 10px;
+  }
+
   &__filters {
     display: flex;
     flex-direction: column;
@@ -18,5 +24,17 @@
   &__close {
     width: 20px;
     align-self: flex-end;
+  }
+
+  &__header {
+    padding-right: calc((50% - 230px));
+  }
+
+  &__home-button {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: $color-beige;
+    background-color: $color-orange;
+    border-radius: 10px;
   }
 }

@@ -3,6 +3,7 @@ import Search from "../Search/Search";
 import "./Nav.scss";
 import whiteCross from "../../assets/images/white-cross.png";
 import FilterList from "../FilterList/FilterList";
+import { Link } from "react-router-dom";
 
 type NavProps = {
   setSearchTerm: (searchTerm: string) => void;
@@ -23,7 +24,12 @@ const Nav = ({
 
   return (
     <div className="nav">
-      <h1>Welcome to HopER</h1>
+      <div className="nav__home">
+        <h1 className="nav__header">Welcome to HopER</h1>
+        <Link className="nav__home-button" to={"/"}>
+          Home
+        </Link>
+      </div>
       {!isClicked && (
         <p onClick={handleClick} className="nav__title">
           Filters
