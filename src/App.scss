@@ -1,2 +1,7 @@
 @use "./assets/styles/variables" as *;
 @use "./assets/styles/reset";
+
+.app {
+  background-color: $color-beige;
+  height: fit-content;
+}
