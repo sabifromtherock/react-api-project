@@ -1,0 +1,10 @@
+@use "../../assets/styles/variables" as *;
+
+.nav {
+  background-color: $color-blue;
+  color: $color-beige;
+  height: 100px;
+  padding-top: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
