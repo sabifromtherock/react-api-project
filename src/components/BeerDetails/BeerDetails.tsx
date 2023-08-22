@@ -2,6 +2,7 @@ import "./BeerDetails.scss";
 import BeerCard from "../BeerCard/BeerCard";
 import { Beer } from "../../types/Beer";
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 type BeerDetailsProps = {
   beers: Beer[];
@@ -11,7 +12,10 @@ type BeerDetailsProps = {
 const BeerDetails = ({ beers, setIsBeerDetailsLoaded }: BeerDetailsProps) => {
   const { id } = useParams();
   const beer = beers.find((beer) => beer.id === Number(id));
-  setIsBeerDetailsLoaded(true);
+
+  useEffect(() => {
+    setIsBeerDetailsLoaded(true);
+  }, [setIsBeerDetailsLoaded]);
 
   if (!beer) return <div className="id-not-found"></div>;
 

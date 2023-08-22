@@ -15,18 +15,23 @@ const FilterList = ({ selectedFilter, setSelectedFilter }: FilterListProps) => {
     <div className="filter__list">
       <Filter
         label="High ABV (ABV > 6%)"
-        selected={selectedFilter === "&abv_gt=6"}
-        onChange={() => handleFilterChange("&abv_gt=6")}
+        selected={selectedFilter === "abv"}
+        onChange={() => handleFilterChange("abv")}
       />
       <Filter
         label="Classic Range (first brewed before 2010)"
-        selected={selectedFilter === "&brewed_before=01-2010"}
-        onChange={() => handleFilterChange("&brewed_before=01-2010")}
+        selected={selectedFilter === "brewed"}
+        onChange={() => handleFilterChange("brewed")}
       />
       <Filter
         label="High Acidity (pH < 4)"
-        selected={selectedFilter === "High Acidity"}
-        onChange={() => handleFilterChange("High Acidity")}
+        selected={selectedFilter === "ph"}
+        onChange={() => handleFilterChange("ph")}
+      />
+      <Filter
+        label="All"
+        selected={selectedFilter === "all"}
+        onChange={() => handleFilterChange("all")}
       />
     </div>
   );
