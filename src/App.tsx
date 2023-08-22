@@ -1,34 +1,62 @@
-import "./App.scss";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import BeerContainer from "./containers/BeerContainer/BeerContainer";
 import BeerDetails from "./components/BeerDetails/BeerDetails";
-import { useEffect, useState } from "react";
-import { Beer } from "./types/Beer";
 import Nav from "./components/Nav/Nav";
+import { Beer } from "./types/Beer";
+
+import "./App.scss";
 
 function App() {
   const [isBeerDetailsLoaded, setIsBeerDetailsLoaded] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [beers, setBeers] = useState<Beer[]>([]);
-
-  let url = "https://api.punkapi.com/v2/beers?page=1&per_page=10";
-
-  if (
-    selectedFilter === "&abv_gt=6" ||
-    selectedFilter === "&brewed_before=01-2010"
-  )
-    url += selectedFilter;
+  const [allBeers, setAllBeers] = useState<Beer[]>([]);
 
   useEffect(() => {
-    const getBeers = async () => {
-      const data = await (await fetch(url)).json();
+    const getAllBeers = async () => {
+      let page = 1;
+      let allBeers: Beer[] = [];
 
-      setBeers(data);
+      // eslint-disable-next-line no-constant-condition
+      while (true) {
+        const url = `https://api.punkapi.com/v2/beers?page=${page}&per_page=80`;
+        const response = await fetch(url);
+
+        if (!response.ok) {
+          console.error(`Failed to fetch beers for page ${page}`);
+          break;
+        }
+
+        const beers = await response.json();
+
+        if (beers.length === 0) {
+          break;
+        }
+
+        allBeers = allBeers.concat(beers);
+
+        page++;
+      }
+      setAllBeers(allBeers);
     };
 
-    getBeers();
-  }, [url]);
+    getAllBeers();
+  }, []);
+
+  const filteredBeers = allBeers.filter((beer) => {
+    if (searchTerm)
+      return beer.name.toLowerCase().includes(searchTerm.toLowerCase());
+
+    if (selectedFilter === "abv") return beer.abv > 6;
+
+    if (selectedFilter === "ph") return beer.ph < 4;
+
+    if (selectedFilter === "brewed")
+      return new Date("01/01/2010") > new Date(`01/${beer.first_brewed}`);
+
+    return true;
+  });
 
   return (
     <BrowserRouter>
@@ -41,12 +69,12 @@ function App() {
           setIsBeerDetailsLoaded={setIsBeerDetailsLoaded}
         />
         <Routes>
-          <Route path="/" element={<BeerContainer beers={beers} />} />
+          <Route path="/" element={<BeerContainer beers={filteredBeers} />} />
           <Route
             path="/beer/:id"
             element={
               <BeerDetails
-                beers={beers}
+                beers={filteredBeers}
                 setIsBeerDetailsLoaded={setIsBeerDetailsLoaded}
               />
             }
