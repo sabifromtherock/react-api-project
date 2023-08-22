@@ -1,0 +1,11 @@
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  width: 350px;
+  font-size: 24px;
+
+  &__image {
+    height: 20px;
+  }
+}
