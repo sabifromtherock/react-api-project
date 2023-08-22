@@ -7,6 +7,7 @@ import { Beer } from "./types/Beer";
 import Nav from "./components/Nav/Nav";
 
 function App() {
+  const [isBeerDetailsLoaded, setIsBeerDetailsLoaded] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [beers, setBeers] = useState<Beer[]>([]);
@@ -19,9 +20,6 @@ function App() {
   )
     url += selectedFilter;
 
-  if (searchTerm || selectedFilter === "High Acidity")
-    url = "https://api.punkapi.com/v2/beers";
-
   useEffect(() => {
     const getBeers = async () => {
       const data = await (await fetch(url)).json();
@@ -32,16 +30,6 @@ function App() {
     getBeers();
   }, [url]);
 
-  let filteredBeers: Beer[] = beers.filter((beer) => {
-    if (searchTerm) return beer.name.toLowerCase().includes(searchTerm);
-
-    if (selectedFilter === "High Acidity") {
-      return beer.ph < 4;
-    }
-  });
-
-  if (!searchTerm || selectedFilter === "") filteredBeers = [...beers];
-
   return (
     <BrowserRouter>
       <div className="app">
@@ -49,10 +37,20 @@ function App() {
           setSearchTerm={setSearchTerm}
           selectedFilter={selectedFilter}
           setSelectedFilter={setSelectedFilter}
+          isBeerDetailsLoaded={isBeerDetailsLoaded}
+          setIsBeerDetailsLoaded={setIsBeerDetailsLoaded}
         />
         <Routes>
-          <Route path="/" element={<BeerContainer beers={filteredBeers} />} />
-          <Route path="/beer/:id" element={<BeerDetails beers={beers} />} />
+          <Route path="/" element={<BeerContainer beers={beers} />} />
+          <Route
+            path="/beer/:id"
+            element={
+              <BeerDetails
+                beers={beers}
+                setIsBeerDetailsLoaded={setIsBeerDetailsLoaded}
+              />
+            }
+          />
         </Routes>
       </div>
     </BrowserRouter>

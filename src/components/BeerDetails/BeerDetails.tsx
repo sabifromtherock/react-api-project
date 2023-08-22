@@ -5,11 +5,13 @@ import { useParams } from "react-router-dom";
 
 type BeerDetailsProps = {
   beers: Beer[];
+  setIsBeerDetailsLoaded: (isLoaded: boolean) => void;
 };
 
-const BeerDetails = ({ beers }: BeerDetailsProps) => {
+const BeerDetails = ({ beers, setIsBeerDetailsLoaded }: BeerDetailsProps) => {
   const { id } = useParams();
   const beer = beers.find((beer) => beer.id === Number(id));
+  setIsBeerDetailsLoaded(true);
 
   if (!beer) return <div className="id-not-found"></div>;
 
