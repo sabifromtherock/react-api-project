@@ -17,7 +17,14 @@ const BeerDetails = ({ beers, setIsBeerDetailsLoaded }: BeerDetailsProps) => {
     setIsBeerDetailsLoaded(true);
   }, [setIsBeerDetailsLoaded]);
 
-  if (!beer) return <div className="id-not-found"></div>;
+  if (!beer)
+    return (
+      <p className="beer-details__id-not-found">
+        ID not found
+        <br />
+        Click on Home
+      </p>
+    );
 
   return (
     <div className="beer-details">

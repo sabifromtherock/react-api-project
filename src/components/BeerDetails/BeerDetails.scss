@@ -36,4 +36,12 @@
     border: unset;
     border-radius: unset;
   }
+
+  &__id-not-found {
+    font-size: 1.5rem;
+    margin: auto;
+    margin-top: 80px;
+    text-align: center;
+    color: $color-red;
+  }
 }
