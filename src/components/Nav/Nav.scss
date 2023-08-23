@@ -21,9 +21,9 @@
     padding-right: 20px;
   }
 
-  &__close {
-    width: 20px;
-    align-self: flex-end;
+  &__arrow {
+    height: 15px;
+    margin-left: 10px;
   }
 
   &__header {
@@ -36,5 +36,9 @@
     color: $color-beige;
     background-color: $color-orange;
     border-radius: 10px;
+  }
+
+  &__title {
+    padding-bottom: 10px;
   }
 }

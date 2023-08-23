@@ -1,9 +1,10 @@
 import { useState } from "react";
 import Search from "../Search/Search";
 import "./Nav.scss";
-import whiteCross from "../../assets/images/white-cross.png";
 import FilterList from "../FilterList/FilterList";
 import { Link } from "react-router-dom";
+import downArrow from "../../assets/images/down-arrow.png";
+import upArrow from "../../assets/images/up-arrow.png";
 
 type NavProps = {
   setSearchTerm: (searchTerm: string) => void;
@@ -44,19 +45,20 @@ const Nav = ({
           </Link>
         )}
       </div>
-      {!isClicked && (
-        <p onClick={handleClick} className="nav__title">
-          Filters
-        </p>
-      )}
-      {isClicked && (
+
+      {isBeerDetailsLoaded ? null : !isClicked ? (
         <div className="nav__filters">
-          <img
-            className="nav__close"
-            src={whiteCross}
-            alt="close filters"
-            onClick={handleClick}
-          />
+          <p onClick={handleClick} className="nav__title">
+            Open Filters
+            <img className="nav__arrow" src={downArrow} alt="down arrow" />
+          </p>
+        </div>
+      ) : (
+        <div className="nav__filters">
+          <p onClick={handleClick} className="nav__title">
+            Close Filters
+            <img className="nav__arrow" src={upArrow} alt="up arrow" />
+          </p>
           <Search setSearchTerm={setSearchTerm} />
           <FilterList
             selectedFilter={selectedFilter}
