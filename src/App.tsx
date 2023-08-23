@@ -6,6 +6,7 @@ import Nav from "./components/Nav/Nav";
 import { Beer } from "./types/Beer";
 
 import "./App.scss";
+import NotExist from "./components/NotExist/NotExist";
 
 function App() {
   const [isBeerDetailsLoaded, setIsBeerDetailsLoaded] = useState(false);
@@ -79,6 +80,7 @@ function App() {
               />
             }
           />
+          <Route path="*" element={<NotExist />} />
         </Routes>
       </div>
     </BrowserRouter>

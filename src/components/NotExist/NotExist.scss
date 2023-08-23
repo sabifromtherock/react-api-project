@@ -1,0 +1,10 @@
+@use "../../assets/styles/variables" as *;
+
+.not-exist {
+  color: $color-red;
+  font-size: 1.5rem;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  margin-top: 80px;
+}

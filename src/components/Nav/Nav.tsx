@@ -34,7 +34,7 @@ const Nav = ({
   return (
     <div className="nav">
       <div className="nav__home">
-        <h1 className="nav__header">Welcome to HopER</h1>
+        <h1 className="nav__header">Welcome to Hoppy</h1>
         {isBeerDetailsLoaded && (
           <Link
             onClick={handleHomeButtonClick}
