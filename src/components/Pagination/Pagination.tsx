@@ -19,7 +19,7 @@ const Pagination = ({
     setCurrentPage(newPage);
   };
 
-  if (currentPage > lastPage) setCurrentPage(lastPage);
+  if (currentPage > lastPage) setCurrentPage(1);
 
   return (
     <div className="pagination">
