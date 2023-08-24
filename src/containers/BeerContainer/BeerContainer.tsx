@@ -10,7 +10,8 @@ type BeerContainerProps = {
 
 const BeerContainer = ({ beers }: BeerContainerProps) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const currentBeers = beers.slice(currentPage, currentPage + 10);
+  const firstBeerToDisplay = (currentPage - 1) * 10;
+  const currentBeers = beers.slice(firstBeerToDisplay, firstBeerToDisplay + 10);
 
   return (
     <div className="beer-container">
@@ -21,14 +22,7 @@ const BeerContainer = ({ beers }: BeerContainerProps) => {
       />
       <div className="beer-container__beers">
         {currentBeers.map((beer) => {
-          return (
-            <BeerCard
-              key={beer.id}
-              url={beer.image_url}
-              beer={beer}
-              variable={""}
-            />
-          );
+          return <BeerCard key={beer.id} beer={beer} variant={""} />;
         })}
       </div>
       <Pagination
