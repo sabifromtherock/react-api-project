@@ -28,11 +28,7 @@ const BeerDetails = ({ beers, setIsBeerDetailsLoaded }: BeerDetailsProps) => {
 
   return (
     <div className="beer-details">
-      <BeerCard
-        url={beer.image_url}
-        beer={beer}
-        variable={"beer-details__card"}
-      />
+      <BeerCard beer={beer} variant={"beer-details__card"} />
       <div className="beer-details__content">
         <p className="beer-details__paragraph">
           <strong className="beer-details__title">Description:</strong>{" "}

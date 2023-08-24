@@ -1,16 +1,20 @@
 import { Link } from "react-router-dom";
 import { Beer } from "../../types/Beer";
+import placeHolderImage from "../../assets/images/bottle.png";
 import "./BeerCard.scss";
 
 type BeerCardProps = {
-  url: string;
   beer: Beer;
-  variable: string;
+  variant: string;
 };
 
-const BeerCard = ({ url, beer, variable }: BeerCardProps) => {
+const BeerCard = ({ beer, variant }: BeerCardProps) => {
+  let url = beer.image_url;
+
+  if (!url) url = placeHolderImage;
+
   return (
-    <Link to={`/beer/${beer.id}`} className={`beer-card  ${variable}`}>
+    <Link to={`/beer/${beer.id}`} className={`beer-card  ${variant}`}>
       <img
         className="beer-card__image"
         src={url}
