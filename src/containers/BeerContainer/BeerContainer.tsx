@@ -10,6 +10,7 @@ type BeerContainerProps = {
 
 const BeerContainer = ({ beers }: BeerContainerProps) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const lastPage = Math.ceil(beers.length / 10);
   const firstBeerToDisplay = (currentPage - 1) * 10;
   const currentBeers = beers.slice(firstBeerToDisplay, firstBeerToDisplay + 10);
 
@@ -18,7 +19,7 @@ const BeerContainer = ({ beers }: BeerContainerProps) => {
       <Pagination
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
-        lastPage={Math.ceil(beers.length / 10)}
+        lastPage={lastPage}
       />
       <div className="beer-container__beers">
         {currentBeers.map((beer) => {
@@ -28,7 +29,7 @@ const BeerContainer = ({ beers }: BeerContainerProps) => {
       <Pagination
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
-        lastPage={Math.ceil(beers.length / 10)}
+        lastPage={lastPage}
       />
     </div>
   );
