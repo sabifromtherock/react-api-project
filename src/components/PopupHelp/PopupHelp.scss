@@ -1,0 +1,37 @@
+@use "../../assets/styles/variables" as *;
+
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+
+  .popup__sign {
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    color: $color-blue-light;
+  }
+
+  .popup__content {
+    color: $color-blue;
+    width: 250px;
+    display: none;
+    position: absolute;
+    border: 1px solid $color-blue;
+    background-color: $color-beige;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    z-index: 1;
+    left: 100%;
+
+    .popup__image {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+  }
+
+  &:hover .popup__content {
+    display: block;
+  }
+}

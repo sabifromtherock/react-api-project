@@ -1,7 +1,7 @@
 @use "../../assets/styles/variables" as *;
 
 .beer-details {
-  color: $color-red;
+  color: $color-orange;
   padding: 15px;
 
   &__content {
@@ -15,9 +15,12 @@
   &__list,
   &__title {
     padding: 10px;
-    background-color: $color-blue-light;
+    background-color: $color-blue;
   }
 
+  &__paragraph {
+    display: inline-block;
+  }
   &__title {
     padding: 0;
     font-size: 18px;
@@ -29,7 +32,6 @@
   }
 
   &__card {
-    background-color: $color-blue-light;
     margin: auto;
     width: 80%;
     height: 500px;
