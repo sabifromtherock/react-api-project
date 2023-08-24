@@ -19,6 +19,8 @@ const Pagination = ({
     setCurrentPage(newPage);
   };
 
+  if (currentPage > lastPage) setCurrentPage(lastPage);
+
   return (
     <div className="pagination">
       {currentPage > 2 && (
