@@ -25,7 +25,7 @@ const Pagination = ({
         <img
           className="pagination__image"
           src={leftDoubleArrow}
-          alt=""
+          alt="left double arrow"
           onClick={() => handlePageChange((currentPage = 1))}
         />
       )}
@@ -33,7 +33,7 @@ const Pagination = ({
         <img
           className="pagination__image"
           src={leftArrow}
-          alt=""
+          alt="left arrow"
           onClick={() => handlePageChange(currentPage - 1)}
         />
       )}
@@ -55,7 +55,7 @@ const Pagination = ({
         <img
           className="pagination__image"
           src={rightArrow}
-          alt=""
+          alt="right arrow"
           onClick={() => handlePageChange(currentPage + 1)}
         />
       )}
@@ -63,7 +63,7 @@ const Pagination = ({
         <img
           className="pagination__image"
           src={rightDoubleArrow}
-          alt=""
+          alt="right double arrow"
           onClick={() => handlePageChange((currentPage = lastPage))}
         />
       )}
