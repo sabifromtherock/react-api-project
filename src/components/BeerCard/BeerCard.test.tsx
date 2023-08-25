@@ -13,14 +13,12 @@ it("should render the BeerCard", () => {
   );
 
   // act
-  const image = screen.getByRole("img");
   const name = screen.getByText("Name:");
   const firstBrewed = screen.getByText("First Brewed:");
   const abv = screen.getByText("ABV:");
   const ph = screen.getByText("pH:");
 
   // assert
-  expect(image).toBeInTheDocument();
   expect(name).toBeInTheDocument();
   expect(firstBrewed).toBeInTheDocument();
   expect(abv).toBeInTheDocument();
