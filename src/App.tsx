@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import BeerContainer from "./containers/BeerContainer/BeerContainer";
 import BeerDetails from "./components/BeerDetails/BeerDetails";
 import Nav from "./components/Nav/Nav";
@@ -60,7 +60,7 @@ function App() {
   });
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="app">
         <Nav
           setSearchTerm={setSearchTerm}
@@ -83,7 +83,7 @@ function App() {
           <Route path="*" element={<NotExist />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
